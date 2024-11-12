@@ -1,108 +1,198 @@
-local plr = game.Players.LocalPlayer
-local mouse = plr:GetMouse()
+-- // GUI TO LUA \\ --
 
-localplayer = plr
+-- // INSTANCES: 8 | SCRIPTS: 3 | MODULES: 0 \\ --
 
-if workspace:FindFirstChild("Core") then
-	workspace.Core:Destroy()
+local UI = {}
+
+-- // StarterGui.ScreenGui \\ --
+UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+
+-- // StarterGui.ScreenGui.Frame \\ --
+UI["2"] = Instance.new("Frame", UI["1"])
+UI["2"]["BorderSizePixel"] = 0
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(136, 136, 136)
+UI["2"]["Size"] = UDim2.new(0, 349, 0, 333)
+UI["2"]["Position"] = UDim2.new(0.77527, 0, 0.01256, 0)
+UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+
+-- // StarterGui.ScreenGui.Frame.TextButton \\ --
+UI["3"] = Instance.new("TextButton", UI["2"])
+UI["3"]["BorderSizePixel"] = 0
+UI["3"]["TextSize"] = 14
+UI["3"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["3"]["Size"] = UDim2.new(0, 80, 0, 50)
+UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["Text"] = [[Fly]]
+UI["3"]["Position"] = UDim2.new(0.06655, 0, 0.06306, 0)
+
+-- // StarterGui.ScreenGui.Frame.TextButton.LocalScript \\ --
+UI["4"] = Instance.new("LocalScript", UI["3"])
+
+
+-- // StarterGui.ScreenGui.ButtonFrame \\ --
+UI["5"] = Instance.new("Frame", UI["1"])
+UI["5"]["BorderSizePixel"] = 0
+UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["5"]["Size"] = UDim2.new(0, 100, 0, 100)
+UI["5"]["Position"] = UDim2.new(0.93519, 0, 0.45352, 0)
+UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["Name"] = [[ButtonFrame]]
+
+-- // StarterGui.ScreenGui.ButtonFrame.  \\ --
+UI["6"] = Instance.new("TextButton", UI["5"])
+UI["6"]["BorderSizePixel"] = 0
+UI["6"]["TextSize"] = 14
+UI["6"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["6"]["Size"] = UDim2.new(0, 75, 0, 59)
+UI["6"]["Name"] = [[ ]]
+UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["6"]["Text"] = [[Open/Close]]
+UI["6"]["Position"] = UDim2.new(0.11544, 0, 0.20231, 0)
+
+-- // StarterGui.ScreenGui.ButtonFrame. .LocalScript \\ --
+UI["7"] = Instance.new("LocalScript", UI["6"])
+
+
+-- // StarterGui.ScreenGui.FlyScript \\ --
+UI["8"] = Instance.new("LocalScript", UI["1"])
+UI["8"]["Name"] = [[FlyScript]]
+
+-- // StarterGui.ScreenGui.Frame.TextButton.LocalScript \\ --
+local function SCRIPT_4()
+local script = UI["4"]
+	local flyScript = script.Parent.Parent.Parent:WaitForChild('FlyScript')
+	script.Parent.MouseButton1Click:connect(function()
+		flyScript.Enabled = not flyScript.Enabled
+	end)
 end
-
-local Core = Instance.new("Part")
-Core.Name = "Core"
-Core.Size = Vector3.new(0.05, 0.05, 0.05)
-
-spawn(function()
-	Core.Parent = workspace
-	local Weld = Instance.new("Weld", Core)
-	Weld.Part0 = Core
-	Weld.Part1 = localplayer.Character.LowerTorso
-	Weld.C0 = CFrame.new(0, 0, 0)
-end)
-
-workspace:WaitForChild("Core")
-
-local torso = workspace.Core
-flying = true
-local speed=10
-local keys={a=false,d=false,w=false,s=false}
-local e1
-local e2
-local function start()
-	local pos = Instance.new("BodyPosition",torso)
-	local gyro = Instance.new("BodyGyro",torso)
-	pos.Name="EPIXPOS"
-	pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
-	pos.position = torso.Position
-	gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-	gyro.cframe = torso.CFrame
-	repeat
-		wait()
-		localplayer.Character.Humanoid.PlatformStand=true
-		local new=gyro.cframe - gyro.cframe.p + pos.position
-		if not keys.w and not keys.s and not keys.a and not keys.d then
-			speed=5
-		end
-		if keys.w then
-			new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
-			speed=speed+0
-		end
-		if keys.s then
-			new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
-			speed=speed+0
-		end
-		if keys.d then
-			new = new * CFrame.new(speed,0,0)
-			speed=speed+0
-		end
-		if keys.a then
-			new = new * CFrame.new(-speed,0,0)
-			speed=speed+0
-		end
-		if speed>10 then
-			speed=5
-		end
-		pos.position=new.p
-		if keys.w then
-			gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
-		elseif keys.s then
-			gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
-		else
-			gyro.cframe = workspace.CurrentCamera.CoordinateFrame
-		end
-	until flying == false
-	if gyro then gyro:Destroy() end
-	if pos then pos:Destroy() end
-	flying=false
-	localplayer.Character.Humanoid.PlatformStand=false
-	speed=10
+task.spawn(SCRIPT_4)
+-- // StarterGui.ScreenGui.ButtonFrame. .LocalScript \\ --
+local function SCRIPT_7()
+local script = UI["7"]
+	local frame = script.Parent.Parent.Parent:WaitForChild('Frame')
+	script.Parent.MouseButton1Click:connect(function()
+		frame.Visible = not frame.Visible
+	end)
 end
-e1=mouse.KeyDown:connect(function(key)
-	if not torso or not torso.Parent then flying=false e1:disconnect() e2:disconnect() return end
-	if key=="w" then
-		keys.w=true
-	elseif key=="s" then
-		keys.s=true
-	elseif key=="a" then
-		keys.a=true
-	elseif key=="d" then
-		keys.d=true
-	elseif key=="x" then
-		if flying==true then
-			flying=false
-		else
-			flying=true
-			start()
+task.spawn(SCRIPT_7)
+-- // StarterGui.ScreenGui.FlyScript \\ --
+local function SCRIPT_8()
+local script = UI["8"]
+	local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	
+	localplayer = plr
+	
+	if workspace:FindFirstChild("Core") then
+		workspace.Core:Destroy()
+	end
+	
+	local Core = Instance.new("Part")
+	Core.Name = "Core"
+	Core.Size = Vector3.new(0.05, 0.05, 0.05)
+	
+	spawn(function()
+		Core.Parent = workspace
+		local Weld = Instance.new("Weld", Core)
+		Weld.Part0 = Core
+		Weld.Part1 = localplayer.Character.LowerTorso
+		Weld.C0 = CFrame.new(0, 0, 0)
+	end)
+	
+	workspace:WaitForChild("Core")
+	
+	local torso = workspace.Core
+	flying = true
+	local speed=10
+	local keys={a=false,d=false,w=false,s=false}
+	local e1
+	local e2
+	local function start()
+		local pos = Instance.new("BodyPosition",torso)
+		local gyro = Instance.new("BodyGyro",torso)
+		pos.Name="EPIXPOS"
+		pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
+		pos.position = torso.Position
+		gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		gyro.cframe = torso.CFrame
+		repeat
+			wait()
+			localplayer.Character.Humanoid.PlatformStand=true
+			local new=gyro.cframe - gyro.cframe.p + pos.position
+			if not keys.w and not keys.s and not keys.a and not keys.d then
+				speed=5
+			end
+			if keys.w then
+				new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+				speed=speed+0
+			end
+			if keys.s then
+				new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+				speed=speed+0
+			end
+			if keys.d then
+				new = new * CFrame.new(speed,0,0)
+				speed=speed+0
+			end
+			if keys.a then
+				new = new * CFrame.new(-speed,0,0)
+				speed=speed+0
+			end
+			if speed>10 then
+				speed=5
+			end
+			pos.position=new.p
+			if keys.w then
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
+			elseif keys.s then
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
+			else
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame
+			end
+		until flying == false
+		if gyro then gyro:Destroy() end
+		if pos then pos:Destroy() end
+		flying=false
+		localplayer.Character.Humanoid.PlatformStand=false
+		speed=10
+	end
+	e1=mouse.KeyDown:connect(function(key)
+		if not torso or not torso.Parent then flying=false e1:disconnect() e2:disconnect() return end
+		if key=="w" then
+			keys.w=true
+		elseif key=="s" then
+			keys.s=true
+		elseif key=="a" then
+			keys.a=true
+		elseif key=="d" then
+			keys.d=true
+		elseif key=="x" then
+			if flying==true then
+				flying=false
+			else
+				flying=true
+				start()
+			end
 		end
-	end
-end)
-e2=mouse.KeyUp:connect(function(key)
-	if key=="w" then
-		keys.w=false
-	elseif key=="s" then
-		keys.s=false
-	elseif key=="a" then
-		keys.a=false
-	elseif key=="d" then
-		keys.d=false
-	end
-end)
+	end)
+	e2=mouse.KeyUp:connect(function(key)
+		if key=="w" then
+			keys.w=false
+		elseif key=="s" then
+			keys.s=false
+		elseif key=="a" then
+			keys.a=false
+		elseif key=="d" then
+			keys.d=false
+		end
+	end)
+	
+end
+task.spawn(SCRIPT_8)
+
+return UI["1"], require;
