@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 8 | SCRIPTS: 2 | MODULES: 0 \\ --
+-- // INSTANCES: 10 | SCRIPTS: 3 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -16,73 +16,90 @@ UI["2"]["Size"] = UDim2.new(0, 391, 0, 235)
 UI["2"]["Position"] = UDim2.new(0.74918, 0, 0.01256, 0)
 UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 
--- // StarterGui.ScreenGui.ButtonFrame \\ --
-UI["3"] = Instance.new("Frame", UI["1"])
+-- // StarterGui.ScreenGui.Frame.TextLabel \\ --
+UI["3"] = Instance.new("TextLabel", UI["2"])
 UI["3"]["BorderSizePixel"] = 0
-UI["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["3"]["Size"] = UDim2.new(0, 72, 0, 59)
-UI["3"]["Position"] = UDim2.new(0.95036, 0, 0.9108, 0)
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
+UI["3"]["TextSize"] = 44
+UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["3"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["Size"] = UDim2.new(0, 393, 0, 50)
 UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["3"]["Name"] = [[ButtonFrame]]
+UI["3"]["Text"] = [[Hatchi's menu V1]]
+UI["3"]["Position"] = UDim2.new(-0.00313, 0, -0.0002, 0)
+
+-- // StarterGui.ScreenGui.Frame.TextLabel \\ --
+UI["4"] = Instance.new("TextLabel", UI["2"])
+UI["4"]["BorderSizePixel"] = 0
+UI["4"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4"]["TextSize"] = 38
+UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["4"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["Size"] = UDim2.new(0, 157, 0, 38)
+UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["Text"] = [[ Fly  Press X]]
+UI["4"]["Position"] = UDim2.new(0.03874, 0, 0.25641, 0)
+
+-- // StarterGui.ScreenGui.Frame.TextLabel \\ --
+UI["5"] = Instance.new("TextLabel", UI["2"])
+UI["5"]["BorderSizePixel"] = 0
+UI["5"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["5"]["TextSize"] = 38
+UI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["5"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["Size"] = UDim2.new(0, 61, 0, 38)
+UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["Text"] = [[ ESP ]]
+UI["5"]["Position"] = UDim2.new(0.47826, 0, 0.25532, 0)
+
+-- // StarterGui.ScreenGui.ButtonFrame \\ --
+UI["6"] = Instance.new("Frame", UI["1"])
+UI["6"]["BorderSizePixel"] = 0
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6"]["Size"] = UDim2.new(0, 72, 0, 59)
+UI["6"]["Position"] = UDim2.new(0.95036, 0, 0.9108, 0)
+UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["6"]["Name"] = [[ButtonFrame]]
 
 -- // StarterGui.ScreenGui.ButtonFrame.  \\ --
-UI["4"] = Instance.new("TextButton", UI["3"])
-UI["4"]["BorderSizePixel"] = 0
-UI["4"]["TextSize"] = 14
-UI["4"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["4"]["Size"] = UDim2.new(0, 75, 0, 59)
-UI["4"]["Name"] = [[ ]]
-UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["4"]["Text"] = [[Open/Close]]
-UI["4"]["Position"] = UDim2.new(-0.02345, 0, -0.00108, 0)
+UI["7"] = Instance.new("TextButton", UI["6"])
+UI["7"]["BorderSizePixel"] = 0
+UI["7"]["TextSize"] = 14
+UI["7"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["7"]["Size"] = UDim2.new(0, 75, 0, 59)
+UI["7"]["Name"] = [[ ]]
+UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["Text"] = [[Open/Close]]
+UI["7"]["Position"] = UDim2.new(-0.02345, 0, -0.00108, 0)
 
 -- // StarterGui.ScreenGui.ButtonFrame. .LocalScript \\ --
-UI["5"] = Instance.new("LocalScript", UI["4"])
+UI["8"] = Instance.new("LocalScript", UI["7"])
 
 
 -- // StarterGui.ScreenGui.FlyScript \\ --
-UI["6"] = Instance.new("LocalScript", UI["1"])
-UI["6"]["Name"] = [[FlyScript]]
+UI["9"] = Instance.new("LocalScript", UI["1"])
+UI["9"]["Name"] = [[FlyScript]]
 
--- // StarterGui.ScreenGui.TextLabel \\ --
-UI["7"] = Instance.new("TextLabel", UI["1"])
-UI["7"]["BorderSizePixel"] = 0
-UI["7"]["BackgroundColor3"] = Color3.fromRGB(62, 62, 62)
-UI["7"]["TextSize"] = 44
-UI["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["7"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["7"]["Size"] = UDim2.new(0, 393, 0, 50)
-UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["7"]["Text"] = [[Hatchi's menu V1]]
-UI["7"]["Position"] = UDim2.new(0.74879, 0, 0.01256, 0)
-
--- // StarterGui.ScreenGui.TextLabel \\ --
-UI["8"] = Instance.new("TextLabel", UI["1"])
-UI["8"]["BorderSizePixel"] = 0
-UI["8"]["TextXAlignment"] = Enum.TextXAlignment.Left
-UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["8"]["TextSize"] = 38
-UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["8"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["Size"] = UDim2.new(0, 157, 0, 38)
-UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["Text"] = [[ Fly  Press X]]
-UI["8"]["Position"] = UDim2.new(0.75485, 0, 0.09045, 0)
+-- // StarterGui.ScreenGui.ESPScript \\ --
+UI["a"] = Instance.new("LocalScript", UI["1"])
+UI["a"]["Name"] = [[ESPScript]]
 
 -- // StarterGui.ScreenGui.ButtonFrame. .LocalScript \\ --
-local function SCRIPT_5()
-local script = UI["5"]
+local function SCRIPT_8()
+local script = UI["8"]
 	local frame = script.Parent.Parent.Parent:WaitForChild('Frame')
 	script.Parent.MouseButton1Click:connect(function()
 		frame.Visible = not frame.Visible
 	end)
 end
-task.spawn(SCRIPT_5)
+task.spawn(SCRIPT_8)
 -- // StarterGui.ScreenGui.FlyScript \\ --
-local function SCRIPT_6()
-local script = UI["6"]
+local function SCRIPT_9()
+local script = UI["9"]
 	local plr = game.Players.LocalPlayer
 	local mouse = plr:GetMouse()
 	
@@ -193,6 +210,57 @@ local script = UI["6"]
 	end)
 	
 end
-task.spawn(SCRIPT_6)
+task.spawn(SCRIPT_9)
+-- // StarterGui.ScreenGui.ESPScript \\ --
+local function SCRIPT_a()
+local script = UI["a"]
+	local Players = game:GetService("Players")
+	
+	local function ApplyHighlight(Player)
+		local Connections = {}
+	
+		--// Parts
+		local Character = Player.Character or Player.CharacterAdded:Wait()
+		local Humanoid = Character:WaitForChild("Humanoid")
+		local HightLighter = Instance.new("Highlight", Character)
+	
+		local function UpdateFillColor()
+			local DefaultColor = Color3.fromRGB(255, 48, 51)
+			HightLighter.FillColor = (Player.TeamColor and Player.TeamColor.Color) or DefaultColor
+		end
+	
+		local function Disconnect()
+			HightLighter:Remove()
+	
+			for _, Connection in next, Connections do
+				Connection:Disconnect()
+			end
+		end
+	
+		--// Connect functions to events
+		table.insert(Connections, Player:GetPropertyChangedSignal("TeamColor"):Connect(UpdateFillColor))
+		table.insert(Connections, Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+			if Humanoid.Health <= 0 then
+				Disconnect()
+			end
+		end))
+	end
+	
+	local function HightLightPlayer(Player)
+		if Player.Character then
+			HightLightPlayer(Player)
+		end
+		Player.CharacterAdded:Connect(function()
+			HightLightPlayer(Player)
+		end)
+	end
+	
+	--// Apply highlights to players
+	for _, Player in next, Players:GetPlayers() do
+		ApplyHighlight(Player)
+	end
+	Players.PlayerAdded:Connect(ApplyHighlight)
+end
+task.spawn(SCRIPT_a)
 
 return UI["1"], require;
