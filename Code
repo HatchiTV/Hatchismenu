@@ -318,7 +318,7 @@ local script = UI["c"]
 	
 	UIS.InputBegan:connect(function(input)--When a player has pressed LeftShift it will play the animation and it will set the normal walking speed (16) to 35.
 	 if input.KeyCode == Enum.KeyCode.LeftShift then
-	  Character.Humanoid.WalkSpeed = 40
+	  Character.Humanoid.WalkSpeed = 24
 	  local Anim = Instance.new('Animation')
 			Anim.AnimationId = 'rbxassetid://6303870363'
 	  PlayAnim = Character.Humanoid:LoadAnimation(Anim)
