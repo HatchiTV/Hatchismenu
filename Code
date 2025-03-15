@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 10 | SCRIPTS: 3 | MODULES: 0 \\ --
+-- // INSTANCES: 12 | SCRIPTS: 4 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -87,6 +87,23 @@ UI["a"]["Size"] = UDim2.new(0, 224, 0, 38)
 UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["a"]["Text"] = [[Noclip fly Press F]]
 UI["a"]["Position"] = UDim2.new(0.05451, 0, 0.50984, 0)
+
+-- // StarterGui.ScreenGui.Frame.TextLabel \\ --
+UI["b"] = Instance.new("TextLabel", UI["7"])
+UI["b"]["BorderSizePixel"] = 0
+UI["b"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["b"]["TextSize"] = 38
+UI["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["b"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["b"]["Size"] = UDim2.new(0, 224, 0, 38)
+UI["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["b"]["Text"] = [[Speed Press Shift]]
+UI["b"]["Position"] = UDim2.new(0.05451, 0, 0.7226, 0)
+
+-- // StarterGui.ScreenGui.ShiftToSprint \\ --
+UI["c"] = Instance.new("LocalScript", UI["1"])
+UI["c"]["Name"] = [[ShiftToSprint]]
 
 -- // StarterGui.ScreenGui.ButtonFrame. .LocalScript \\ --
 local function SCRIPT_4()
@@ -291,5 +308,32 @@ local script = UI["6"]
 	end)
 end
 task.spawn(SCRIPT_6)
+-- // StarterGui.ScreenGui.ShiftToSprint \\ --
+local function SCRIPT_c()
+local script = UI["c"]
+	local UIS = game:GetService('UserInputService')
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+	
+	
+	UIS.InputBegan:connect(function(input)--When a player has pressed LeftShift it will play the animation and it will set the normal walking speed (16) to 35.
+	 if input.KeyCode == Enum.KeyCode.LeftShift then
+	  Character.Humanoid.WalkSpeed = 40
+	  local Anim = Instance.new('Animation')
+			Anim.AnimationId = 'rbxassetid://6303870363'
+	  PlayAnim = Character.Humanoid:LoadAnimation(Anim)
+	  PlayAnim:Play()
+	 end
+	end)
+	
+	
+	UIS.InputEnded:connect(function(input)
+	 if input.KeyCode == Enum.KeyCode.LeftShift then
+	  Character.Humanoid.WalkSpeed = 16
+	  PlayAnim:Stop()
+	 end
+	end)
+end
+task.spawn(SCRIPT_c)
 
 return UI["1"], require;
