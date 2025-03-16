@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 16 | SCRIPTS: 2 | MODULES: 2 \\ --
+-- // INSTANCES: 16 | SCRIPTS: 3 | MODULES: 3 \\ --
 
 local UI = {}
 
@@ -67,74 +67,56 @@ UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["7"]["Text"] = [[ Fly  Press X]]
 UI["7"]["Position"] = UDim2.new(0.05451, 0, 0.27656, 0)
 
--- // StarterGui.ScreenGui.Frame.TextLabel \\ --
-UI["8"] = Instance.new("TextLabel", UI["5"])
-UI["8"]["BorderSizePixel"] = 0
-UI["8"]["TextXAlignment"] = Enum.TextXAlignment.Left
-UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["8"]["TextSize"] = 38
-UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["8"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["Size"] = UDim2.new(0, 224, 0, 38)
-UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["Text"] = [[Noclip fly Press F]]
-UI["8"]["Position"] = UDim2.new(0.05451, 0, 0.50984, 0)
-
--- // StarterGui.ScreenGui.Frame.TextLabel \\ --
-UI["9"] = Instance.new("TextLabel", UI["5"])
-UI["9"]["BorderSizePixel"] = 0
-UI["9"]["TextXAlignment"] = Enum.TextXAlignment.Left
-UI["9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["9"]["TextSize"] = 38
-UI["9"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["9"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["9"]["Size"] = UDim2.new(0, 224, 0, 38)
-UI["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["9"]["Text"] = [[Speed Press Shift]]
-UI["9"]["Position"] = UDim2.new(0.05451, 0, 0.7226, 0)
-
 -- // StarterGui.ScreenGui.Free Cam (shift + C) \\ --
-UI["a"] = Instance.new("Script", UI["1"])
-UI["a"]["Name"] = [[Free Cam (shift + C)]]
+UI["8"] = Instance.new("Script", UI["1"])
+UI["8"]["Name"] = [[Free Cam (shift + C)]]
 
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera \\ --
-UI["b"] = Instance.new("ScreenGui", UI["a"])
-UI["b"]["DisplayOrder"] = 10
-UI["b"]["Enabled"] = false
-UI["b"]["Name"] = [[FreeCamera]]
+UI["9"] = Instance.new("ScreenGui", UI["8"])
+UI["9"]["DisplayOrder"] = 10
+UI["9"]["Enabled"] = false
+UI["9"]["Name"] = [[FreeCamera]]
 
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera.FreeCamera \\ --
-UI["c"] = Instance.new("LocalScript", UI["b"])
-UI["c"]["Name"] = [[FreeCamera]]
+UI["a"] = Instance.new("LocalScript", UI["9"])
+UI["a"]["Name"] = [[FreeCamera]]
 
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera.FreeCamera.Maid \\ --
-UI["d"] = Instance.new("ModuleScript", UI["c"])
-UI["d"]["Name"] = [[Maid]]
+UI["b"] = Instance.new("ModuleScript", UI["a"])
+UI["b"]["Name"] = [[Maid]]
 
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera.FreeCamera.Spring \\ --
-UI["e"] = Instance.new("ModuleScript", UI["c"])
-UI["e"]["Name"] = [[Spring]]
+UI["c"] = Instance.new("ModuleScript", UI["a"])
+UI["c"]["Name"] = [[Spring]]
 
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera.TopBar \\ --
-UI["f"] = Instance.new("Frame", UI["b"])
-UI["f"]["ZIndex"] = 10
-UI["f"]["BorderSizePixel"] = 0
-UI["f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-UI["f"]["Size"] = UDim2.new(1, 0, 0.128, 0)
-UI["f"]["Position"] = UDim2.new(0, 0, 0, -36)
-UI["f"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
-UI["f"]["Name"] = [[TopBar]]
+UI["d"] = Instance.new("Frame", UI["9"])
+UI["d"]["ZIndex"] = 10
+UI["d"]["BorderSizePixel"] = 0
+UI["d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["d"]["Size"] = UDim2.new(1, 0, 0.128, 0)
+UI["d"]["Position"] = UDim2.new(0, 0, 0, -36)
+UI["d"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["d"]["Name"] = [[TopBar]]
 
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera.BottomBar \\ --
-UI["10"] = Instance.new("Frame", UI["b"])
-UI["10"]["ZIndex"] = 10
-UI["10"]["BorderSizePixel"] = 0
-UI["10"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-UI["10"]["AnchorPoint"] = Vector2.new(0, 1)
-UI["10"]["Size"] = UDim2.new(1, 0, 0.128, 0)
-UI["10"]["Position"] = UDim2.new(0, 0, 1, 0)
-UI["10"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
-UI["10"]["Name"] = [[BottomBar]]
+UI["e"] = Instance.new("Frame", UI["9"])
+UI["e"]["ZIndex"] = 10
+UI["e"]["BorderSizePixel"] = 0
+UI["e"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e"]["AnchorPoint"] = Vector2.new(0, 1)
+UI["e"]["Size"] = UDim2.new(1, 0, 0.128, 0)
+UI["e"]["Position"] = UDim2.new(0, 0, 1, 0)
+UI["e"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["e"]["Name"] = [[BottomBar]]
+
+-- // StarterGui.ScreenGui.MainModule \\ --
+UI["f"] = Instance.new("ModuleScript", UI["1"])
+UI["f"]["Name"] = [[MainModule]]
+
+-- // StarterGui.ScreenGui.MainModule.Noclip \\ --
+UI["10"] = Instance.new("LocalScript", UI["f"])
+UI["10"]["Name"] = [[Noclip]]
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -151,9 +133,9 @@ local function require(Module:ModuleScript)
     return G2L_REQUIRE(Module);
 end
 
-G2L_MODULES[UI["d"]] = {
+G2L_MODULES[UI["b"]] = {
 Closure = function()
-    local script = UI["d"]
+    local script = UI["b"]
 -- Maid class
 
 local destructors = {
@@ -212,9 +194,9 @@ return Maid.new()
 
 end
 }
-G2L_MODULES[UI["e"]] = {
+G2L_MODULES[UI["c"]] = {
 Closure = function()
-    local script = UI["e"]
+    local script = UI["c"]
 
 local Spring = {}
 Spring.__index = Spring
@@ -250,6 +232,22 @@ return Spring
 
 end
 }
+G2L_MODULES[UI["f"]] = {
+Closure = function()
+    local script = UI["f"]
+local module = {}
+
+function module.noclip(target)
+	_G.target = target
+	local target = game:GetService("Players"):FindFirstChild(_G.target)
+	local Noclip = script.Noclip:Clone()
+	Noclip.Parent = target.Character
+end
+
+return module
+
+end
+}
 -- // StarterGui.ScreenGui.ButtonFrame. .LocalScript \\ --
 local function SCRIPT_4()
 local script = UI["4"]
@@ -260,8 +258,8 @@ local script = UI["4"]
 end
 task.spawn(SCRIPT_4)
 -- // StarterGui.ScreenGui.Free Cam (shift + C).FreeCamera.FreeCamera \\ --
-local function SCRIPT_c()
-local script = UI["c"]
+local function SCRIPT_a()
+local script = UI["a"]
 	------------------------------------------------
 	--
 	-- Freecam.lua
@@ -612,6 +610,95 @@ local script = UI["c"]
 	
 	print("FREE CAM SCRIPT LOADED FOR: ", player, " | Script Edited by Confusen!")
 end
-task.spawn(SCRIPT_c)
+task.spawn(SCRIPT_a)
+-- // StarterGui.ScreenGui.MainModule.Noclip \\ --
+local function SCRIPT_10()
+local script = UI["10"]
+	--[[VARIABLES]]--
+	local Plr = game:GetService("Players").LocalPlayer
+	local Char = Plr.Character
+	local UIS = game:GetService("UserInputService")
+	
+	local IsNoclipped = false
+	
+	--[[CLIP FUNCTION]]--
+	local function clip(Character, toggle)
+		for _,v in pairs(Character:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
+				v.CanCollide = toggle
+			end
+		end
+	end
+	--[[Fly Button thingy]]--
+	UIS.InputBegan:Connect(function(Key, GPE)
+		if GPE then return end
+		
+		if Key.KeyCode == Enum.KeyCode.F then
+			if Char:FindFirstChild("Humanoid").Health <= 0 then
+				IsNoclipped = false
+				return
+			else
+				if not IsNoclipped then
+					IsNoclipped = true
+					local HRP = Char:FindFirstChild("HumanoidRootPart")
+					PlrY = HRP.Position.Y -3.5
+					if workspace:FindFirstChild("NoclipPart") then
+						workspace:FindFirstChild("NoclipPart"):Destroy()
+					end
+	
+					NoclipPart = Instance.new("Part")
+					NoclipPart.Parent = workspace
+					NoclipPart.Anchored = true
+					NoclipPart.Name = "NoclipPart"
+					NoclipPart.Size = Vector3.new(5, 1, 5)
+					NoclipPart.Material = Enum.Material.Cobblestone
+					NoclipPart.CFrame = CFrame.new(HRP.Position.X, PlrY, HRP.Position.Z)
+					NoclipPart.Color = Color3.new(0, .5, 0)
+					NoclipPart.Transparency = 0.5
+					while IsNoclipped do
+						Char = game:GetService("Players").LocalPlayer.Character
+						if Char then
+							pcall(function()
+								clip(Char, false)
+							end)
+						end
+						game:GetService("RunService").Stepped:Wait()
+					end
+				else
+					IsNoclipped = false
+					clip(Char, true)
+					workspace:FindFirstChild("NoclipPart"):Destroy()
+				end
+			end
+		end
+	end)
+	
+	--[IT DO]]--
+	function UpdatePosition()
+		if Char.Humanoid.Health <= 0 then
+			IsNoclipped = false
+			return 
+		else
+			if workspace:FindFirstChild("NoclipPart") then
+				local NoclipPart = workspace:FindFirstChild("NoclipPart")
+				local HRP = Char:FindFirstChild("HumanoidRootPart")
+				Char = game:GetService("Players").LocalPlayer.Character
+				if UIS:IsKeyDown(Enum.KeyCode.E) then
+					PlrY = PlrY + 0.09
+				end
+	
+				if UIS:IsKeyDown(Enum.KeyCode.Q) then
+					PlrY = PlrY - 0.09
+				end
+				local suc, err = pcall(function()
+					NoclipPart.CFrame = CFrame.new(HRP.Position.X, PlrY, HRP.Position.Z)
+				end)
+			end
+		end
+	end
+	--[[THIS ALSO DO]]--
+	game:GetService("RunService").RenderStepped:Connect(UpdatePosition)
+end
+task.spawn(SCRIPT_10)
 
 return UI["1"], require;
