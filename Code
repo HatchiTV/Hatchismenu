@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 14 | SCRIPTS: 1 | MODULES: 1 \\ --
+-- // INSTANCES: 15 | SCRIPTS: 1 | MODULES: 1 \\ --
 
 local UI = {}
 
@@ -111,6 +111,18 @@ UI["e"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 18)
 UI["e"]["Size"] = UDim2.new(0.976, 1, 1, 1)
 UI["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["e"]["Name"] = [[Bar]]
+
+-- // StarterGui.ScreenGui.TextLabel \\ --
+UI["f"] = Instance.new("TextLabel", UI["1"])
+UI["f"]["BorderSizePixel"] = 0
+UI["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["f"]["TextSize"] = 14
+UI["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["f"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["f"]["Size"] = UDim2.new(0, 57, 0, 50)
+UI["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["f"]["Text"] = [[ESP]]
+UI["f"]["Position"] = UDim2.new(0.92349, 0, 0.04146, 0)
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
