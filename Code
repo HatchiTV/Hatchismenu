@@ -81,7 +81,7 @@ UI["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["a"]["BackgroundTransparency"] = 1
 UI["a"]["Size"] = UDim2.new(0.85688, 1, 0.09801, 1)
 UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["a"]["Text"] = [[[50 M]]]
+UI["a"]["Text"] = [[[50 M]]
 UI["a"]["Name"] = [[Distance]]
 UI["a"]["Position"] = UDim2.new(0.07125, 0, 0.90074, 0)
 
