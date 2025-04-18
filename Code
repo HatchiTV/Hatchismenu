@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 15 | SCRIPTS: 1 | MODULES: 1 \\ --
+-- // INSTANCES: 12 | SCRIPTS: 1 | MODULES: 1 \\ --
 
 local UI = {}
 
@@ -38,9 +38,9 @@ UI["5"]["BackgroundTransparency"] = 1
 -- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Box \\ --
 UI["6"] = Instance.new("Frame", UI["5"])
 UI["6"]["BorderSizePixel"] = 0
-UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["6"]["Size"] = UDim2.new(0.79545, 1, 0.79901, 1)
-UI["6"]["Position"] = UDim2.new(0.10135, 0, 0.09926, 0)
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 5)
+UI["6"]["Size"] = UDim2.new(0.29698, 1, 0.79901, 1)
+UI["6"]["Position"] = UDim2.new(0.36053, 0, 0.09926, 0)
 UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["6"]["Name"] = [[Box]]
 UI["6"]["BackgroundTransparency"] = 0.8
@@ -81,7 +81,7 @@ UI["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["a"]["BackgroundTransparency"] = 1
 UI["a"]["Size"] = UDim2.new(0.85688, 1, 0.09801, 1)
 UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["a"]["Text"] = [[[50 M]]
+UI["a"]["Text"] = [[[50 M]]]
 UI["a"]["Name"] = [[Distance]]
 UI["a"]["Position"] = UDim2.new(0.07125, 0, 0.90074, 0)
 
@@ -89,40 +89,17 @@ UI["a"]["Position"] = UDim2.new(0.07125, 0, 0.90074, 0)
 UI["b"] = Instance.new("UIStroke", UI["a"])
 UI["b"]["Thickness"] = 3
 
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.HP \\ --
-UI["c"] = Instance.new("Frame", UI["5"])
-UI["c"]["BorderSizePixel"] = 0
-UI["c"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0)
-UI["c"]["Size"] = UDim2.new(0.02518, 1, 0.79901, 1)
-UI["c"]["Position"] = UDim2.new(0.91523, 0, 0.09926, 0)
-UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["c"]["Name"] = [[HP]]
-UI["c"]["Rotation"] = 180
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.HP.UIStroke \\ --
-UI["d"] = Instance.new("UIStroke", UI["c"])
-UI["d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
-UI["d"]["Thickness"] = 2
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.HP.Bar \\ --
-UI["e"] = Instance.new("Frame", UI["c"])
-UI["e"]["BorderSizePixel"] = 0
-UI["e"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 18)
-UI["e"]["Size"] = UDim2.new(0.976, 1, 1, 1)
-UI["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["e"]["Name"] = [[Bar]]
-
 -- // StarterGui.ScreenGui.TextLabel \\ --
-UI["f"] = Instance.new("TextLabel", UI["1"])
-UI["f"]["BorderSizePixel"] = 0
-UI["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["f"]["TextSize"] = 14
-UI["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["f"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["f"]["Size"] = UDim2.new(0, 57, 0, 50)
-UI["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["f"]["Text"] = [[ESP]]
-UI["f"]["Position"] = UDim2.new(0.92349, 0, 0.04146, 0)
+UI["c"] = Instance.new("TextLabel", UI["1"])
+UI["c"]["BorderSizePixel"] = 0
+UI["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c"]["TextSize"] = 14
+UI["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c"]["Size"] = UDim2.new(0, 57, 0, 50)
+UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c"]["Text"] = [[ESP]]
+UI["c"]["Position"] = UDim2.new(0.92349, 0, 0.04146, 0)
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
