@@ -1,180 +1,56 @@
--- // GUI TO LUA \\ --
+-- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
 
--- // INSTANCES: 12 | SCRIPTS: 1 | MODULES: 1 \\ --
+-- Instances:
 
-local UI = {}
-
--- // StarterGui.ScreenGui \\ --
-UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
-
-
--- // StarterGui.ScreenGui.MainModule \\ --
-UI["2"] = Instance.new("ModuleScript", UI["1"])
-UI["2"]["Name"] = [[MainModule]]
-
--- // StarterGui.ScreenGui.MainModule.ESP \\ --
-UI["3"] = Instance.new("LocalScript", UI["2"])
-UI["3"]["Name"] = [[ESP]]
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX \\ --
-UI["4"] = Instance.new("BillboardGui", UI["3"])
-UI["4"]["Active"] = true
-UI["4"]["AlwaysOnTop"] = true
-UI["4"]["Size"] = UDim2.new(6.5, 0, 8.5, 0)
-UI["4"]["Enabled"] = false
-UI["4"]["ClipsDescendants"] = true
-UI["4"]["Name"] = [[ESP_BOX]]
-UI["4"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder \\ --
-UI["5"] = Instance.new("Frame", UI["4"])
-UI["5"]["BorderSizePixel"] = 0
-UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["5"]["Size"] = UDim2.new(1, 1, 1, 1)
-UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["5"]["Name"] = [[Holder]]
-UI["5"]["BackgroundTransparency"] = 1
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Box \\ --
-UI["6"] = Instance.new("Frame", UI["5"])
-UI["6"]["BorderSizePixel"] = 0
-UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 5)
-UI["6"]["Size"] = UDim2.new(0.29698, 1, 0.79901, 1)
-UI["6"]["Position"] = UDim2.new(0.36053, 0, 0.09926, 0)
-UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["6"]["Name"] = [[Box]]
-UI["6"]["BackgroundTransparency"] = 0.8
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Box.UIStroke \\ --
-UI["7"] = Instance.new("UIStroke", UI["6"])
-UI["7"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
-UI["7"]["Thickness"] = 2
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Username \\ --
-UI["8"] = Instance.new("TextLabel", UI["5"])
-UI["8"]["TextWrapped"] = true
-UI["8"]["BorderSizePixel"] = 0
-UI["8"]["TextScaled"] = true
-UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["8"]["TextSize"] = 14
-UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["8"]["BackgroundTransparency"] = 1
-UI["8"]["Size"] = UDim2.new(0.85688, 1, 0.09801, 1)
-UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["Name"] = [[Username]]
-UI["8"]["Position"] = UDim2.new(0.07125, 0, 0, 0)
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Username.UIStroke \\ --
-UI["9"] = Instance.new("UIStroke", UI["8"])
-UI["9"]["Thickness"] = 3
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Distance \\ --
-UI["a"] = Instance.new("TextLabel", UI["5"])
-UI["a"]["TextWrapped"] = true
-UI["a"]["BorderSizePixel"] = 0
-UI["a"]["TextScaled"] = true
-UI["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["a"]["TextSize"] = 14
-UI["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["a"]["BackgroundTransparency"] = 1
-UI["a"]["Size"] = UDim2.new(0.85688, 1, 0.09801, 1)
-UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["a"]["Text"] = [[[50 M]]]
-UI["a"]["Name"] = [[Distance]]
-UI["a"]["Position"] = UDim2.new(0.07125, 0, 0.90074, 0)
-
--- // StarterGui.ScreenGui.MainModule.ESP.ESP_BOX.Holder.Distance.UIStroke \\ --
-UI["b"] = Instance.new("UIStroke", UI["a"])
-UI["b"]["Thickness"] = 3
-
--- // StarterGui.ScreenGui.TextLabel \\ --
-UI["c"] = Instance.new("TextLabel", UI["1"])
-UI["c"]["BorderSizePixel"] = 0
-UI["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["c"]["TextSize"] = 14
-UI["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["c"]["Size"] = UDim2.new(0, 57, 0, 50)
-UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["c"]["Text"] = [[ESP]]
-UI["c"]["Position"] = UDim2.new(0.92349, 0, 0.04146, 0)
-
--- Require G2L wrapper
-local G2L_REQUIRE = require;
-local G2L_MODULES = {};
-local function require(Module:ModuleScript)
-    local ModuleState = G2L_MODULES[Module];
-    if ModuleState then
-        if not ModuleState.Required then
-            ModuleState.Required = true;
-            ModuleState.Value = ModuleState.Closure();
-        end
-        return ModuleState.Value;
-    end;
-    return G2L_REQUIRE(Module);
-end
-
-G2L_MODULES[UI["2"]] = {
-Closure = function()
-    local script = UI["2"]
-local ESP = {}
-
-function ESP:Load(Player)
-	if game.Players:FindFirstChild(Player) then
-		script.ESP.Parent = game.Players:FindFirstChild(Player).PlayerGui
-	end
-	
-end
-
-return ESP
-end
+local Converted = {
+	["_ScreenGui"] = Instance.new("ScreenGui");
+	["_MainModule"] = Instance.new("ModuleScript");
+	["_ESP"] = Instance.new("LocalScript");
+	["_ESP_BOX"] = Instance.new("BillboardGui");
+	["_Holder"] = Instance.new("Frame");
+	["_Box"] = Instance.new("Frame");
+	["_UIStroke"] = Instance.new("UIStroke");
+	["_Username"] = Instance.new("TextLabel");
+	["_UIStroke1"] = Instance.new("UIStroke");
+	["_Distance"] = Instance.new("TextLabel");
+	["_UIStroke2"] = Instance.new("UIStroke");
+	["_TextLabel"] = Instance.new("TextLabel");
 }
--- // StarterGui.ScreenGui.MainModule.ESP \\ --
-local function SCRIPT_3()
-local script = UI["3"]
-	print("esp loaded")
-	
-	local RunService = game:GetService("RunService")
-	
-	
-	RunService.RenderStepped:Connect(function()
-		local Players = game.Players:GetChildren()
-		
-		for _,Plr in pairs(Players) do
-			if Plr:IsA("Player") and Plr ~= game.Players.LocalPlayer then
-				local Character = Plr.Character
-				local Humanoid = Character.Humanoid
-				
-				if not Character.HumanoidRootPart:FindFirstChild("ESP_BOX") then
-					local New = script.ESP_BOX:Clone()
-					New.Enabled = true
-					New.Parent = Character.HumanoidRootPart
-				elseif Character.HumanoidRootPart:FindFirstChild("ESP_BOX") then
-					local ESP = Character.HumanoidRootPart:FindFirstChild("ESP_BOX").Holder
-					local HP = ESP.HP
-					ESP.HP.Bar:TweenSizeAndPosition(UDim2.new(0.976,1,Humanoid.Health/100, 1),UDim2.new(0,0,0,0))
-	
-					ESP.Username.Text = Plr.Name
-					
-					ESP.Distance.Text = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).Magnitude + 0.5).." M"
-				end
-				
-				
-			end
-		end
-	end)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-end
-task.spawn(SCRIPT_3)
 
-return UI["1"], require;
+-- Properties:
+
+Converted["_ScreenGui"].Parent = game:GetService("CoreGui")
+
+Converted["_TextLabel"].Font = Enum.Font.SourceSans
+Converted["_TextLabel"].Text = "ESP"
+Converted["_TextLabel"].TextColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_TextLabel"].TextSize = 14
+Converted["_TextLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_TextLabel"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_TextLabel"].BorderSizePixel = 0
+Converted["_TextLabel"].Position = UDim2.new(0.923488915, 0, 0.041457288, 0)
+Converted["_TextLabel"].Size = UDim2.new(0, 57, 0, 50)
+Converted["_TextLabel"].Parent = Converted["_ScreenGui"]
+
+-- Fake Module Scripts:
+
+local fake_module_scripts = {}
+
+do -- Fake Module: StarterGui.ScreenGui.MainModule
+    local script = Instance.new("ModuleScript")
+    script.Name = "MainModule"
+    script.Parent = Converted["_ScreenGui"]
+    local function module_script()
+		local ESP = {}
+		
+		function ESP:Load(Player)
+			if game.Players:FindFirstChild(Player) then
+				script.ESP.Parent = game.Players:FindFirstChild(Player).PlayerGui
+			end
+			
+		end
+		
+		return ESP
+    end
+    fake_module_scripts[script] = module_script
+end
